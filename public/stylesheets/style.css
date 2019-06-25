@@ -1,8 +1,110 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+/* .header {
+  min-height: 100vh;
+} */
+
+* {
+  margin:0;
+  padding:0;
 }
 
-a {
-  color: #00B7FF;
-}
+  body{
+    font-family:arial,sans-serif;
+    font-size:100%;
+    margin:1em;
+    background: white;
+    color:#fff;
+  }
+
+  .header .navbar {
+    background-color: transparent !important;
+  }
+
+  #navlink {
+    padding-top: 65px;
+    font-size: 1.2em;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif !important;
+  }
+
+  h2, p{
+    font-size:100px;
+    font-weight:normal;
+  }
+
+  ul, li{
+    list-style:none;
+  }
+
+  ul{
+    overflow:hidden;
+    padding:3em;
+  }
+
+  ul li{
+    margin:1em;
+    float:left;
+  }
+  ul li h2{
+    font-size:140%;
+    font-weight:bold;
+    padding-bottom:10px;
+  }
+  ul li p{
+    font-family:"Reenie Beanie",arial,sans-serif;
+    font-size:150%;
+  }
+
+  /* Inclinación de las notas */
+  ul li a{
+    -webkit-transform: rotate(-6deg);
+    text-decoration: none !important;
+  }
+
+  /* con nth-child(posicion de elemento) damos aleatoriedad a las notas 
+     con un color y rotación distintos*/
+  ul li:nth-child(even) a{
+    -webkit-transform:rotate(4deg);
+    position:relative;
+    top:5px;
+    background:#cfc;
+  }
+  ul li:nth-child(3n) a{
+    -webkit-transform:rotate(-3deg);
+    position:relative;
+    top:-5px;
+    background:#ccf;
+  }
+  ul li:nth-child(5n) a{
+    -webkit-transform:rotate(5deg);
+    position:relative;
+    top:-10px;
+  }
+
+  /* Resaltado de las notas con sombreado y efecto "zoom" al utilzar la propiedad "hover" */
+  /* Ponemos z-index para que quede sobre las otras notas */
+  ul li a:hover, ul li a:focus{
+    box-shadow:10px 10px 7px rgba(0,0,0,.7);
+    -moz-box-shadow:10px 10px 7px rgba(0,0,0,.7);
+    -webkit-box-shadow: 10px 10px 7px rgba(0,0,0,.7);
+    -webkit-transform: scale(1.25);
+    position:relative;
+    z-index:5;
+    color:#000;
+  }
+
+  /* Transición del título cuando acercamos la nota */
+  ul li a{
+    text-decoration:none !important;;
+    color:#000;
+    background:#ffc;
+    display:block;
+    height:13em;
+    width:13em;
+    padding:1em;
+    /* -webkit-box-shadow: 5px 5px 7px rgba(33,33,33,.7); */
+    box-shadow: 5px 5px 7px rgba(33,33,33,.7);
+    -webkit-transition:-webkit-transform .15s linear;
+  }
+
+  ol{text-align:center;}
+  ol li{display:inline;padding-right:1em;}
+  ol li a{color:#fff;}
