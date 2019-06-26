@@ -15,6 +15,10 @@ router.get('/add', function(_req, res) {
   res.render('adduser');
 });
 
+router.get('/user', function(_req, res) {
+  res.render('user');
+});
+
 
 
 

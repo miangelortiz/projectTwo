@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
-//var mongodb = require('mongodb');
+var mongodb = require('mongodb');
 require('../config/mongodb');
 
 var jwt = require('jsonwebtoken');
@@ -13,16 +13,17 @@ var md5 = require('md5');
 router.post('/auth', (req, res) => {
 
     global.mongoConn.collection('users').find({
-            username: req.body.username,
-            password: md5(req.body.password)
-        }).toArray()
+        username: req.body.username,
+        password: md5(req.body.password)
+    }).toArray()
         .then(result => {
             if (result.length > 0) {
                 var token = jwt.sign({
-                        id: result[0]._id,
-                        username: result[0].username,
-                        isAdmin: result[0].isAdmin ? true : false
-                    },
+                    id: result[0]._id,
+                    username: result[0].username,
+                    email: result[0].email,
+                    isAdmin: result[0].isAdmin ? true : false
+                },
                     "mysecret", {
                         expiresIn: 3600
                     }
@@ -37,37 +38,32 @@ router.post('/auth', (req, res) => {
 
 //Resgistro de usuarios
 router.post('/users', (req, res) => {
-    // if (req.headers.authorization) {
-    //     const token = req.headers.authorization.split(" ")[1];
-    //     try {
-    //         const decoded = jwt.verify(token, "mysecret");
-    //         if (decoded.isAdmin) {
-    //             global.mongoConn.collection('users').insertOne({
-    //                 username: req.body.username,
-    //                 password: md5(req.body.password),
-    //                 email: req.body.email,
-    //                 isAdmin: req.body.isAdmin
-    //             }, (_err, result) => {
-    //                 res.send(result.ops[0]);
-    //             });
-    //             //En la consulta le pasamos una callback y devolvemos el documento creado
+    global.mongoConn.collection('users').insertOne({
+        username: req.body.username,
+        password: md5(req.body.password),
+        email: req.body.email,
+        isAdmin: false
+    }, (_err, result) => {
+        res.send(result);
+    });
+});
 
-    //         } else {
-    //             res.status(401).send("You don't have permission. Not Admin");
-    //         }
-    //     } catch (e) {
-    //         res.status(401).send("You don't have permission");
-    //     }
-    // } else {
-        global.mongoConn.collection('users').insertOne({
-            username: req.body.username,
-            password: md5(req.body.password),
-            email: req.body.email,
-            isAdmin: false
+//Registro de ideas por usuario logueado
+router.post('/users/idea', (req, res) => {
+    try {
+        const token = req.headers.authorization.split(" ")[1];
+        const decoded = jwt.verify(token, "mysecret");
+        global.mongoConn.collection('ideas').insertOne({
+            title: req.body.title,
+            comentary: req.body.comentary,
+            date: new Date(),
+            user: mongodb.ObjectID(decoded.id)
         }, (_err, result) => {
             res.send(result);
         });
-    
+    } catch{
+        res.status(401).send();
+    }
 
 });
 

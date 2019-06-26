@@ -1,0 +1,41 @@
+<% include header %>
+
+<% include navbar %>
+
+<div class="row justify-content-center">
+    <div class="col-3">
+        <h3>Add your idea!</h3>
+        <a href="#" class="nav-item nav-link" onclick="showIdea()">Add Idea</a>
+        <a href="#" class="nav-item nav-link" onclick="showUser()">Show user info</a>
+    </div>
+
+    <!-- Card para mostrar info de usuario registrado con posibilidad de editar sus datos -->
+    <div class="col-3">
+        <div class="card" id="showInfoCardUser" style="width: 18rem;" hidden>
+            <div class="card-body">
+                <h5 class="card-text" id="userLog"></h5>
+                <!-- <h6 class="card-subtitle mb-2 text-muted"></h6> -->
+                <h5 class="card-text" id="userEmail"></h5>
+                <a href="#" class="card-link">Edit</a>
+                <a href="/user/" class="card-link">Close</a>
+
+            </div>
+        </div>
+
+        <!-- Card para añadir una idea y guardarla en la bd con la fecha e id del usuario registrado -->
+        <div class="card" id="showAddCardIdea" style="width: 18rem;" hidden>
+            <div class="card-body">
+                <h5 class="card-title">Title</h5>
+                <input type="text" id="title" placeholder="max. 20 characters" maxlength="20" class="form-control">
+
+                <h5 class="card-title">Your idea</h5>
+                <textarea id="comentary" placeholder="max. 70 characters" maxlength="70" class="form-control" rows="3"></textarea> 
+
+                <a href="#" class="card-link" onclick="addIdea()">Save</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<% include footer %>
