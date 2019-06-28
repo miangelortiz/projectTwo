@@ -2,38 +2,68 @@
 
 <% include navbar %>
 
-<div class="row justify-content-center">
-    <div class="col-3">
+<div class="row justify-content-start" id="userMenu">
+    <div class="col-4">
         <h3>Add your idea!</h3>
         <a href="#" class="nav-item nav-link" onclick="showIdea()">Add Idea</a>
-        <a href="#" class="nav-item nav-link" onclick="showUser()">Show user info</a>
+        <a href="#" class="nav-item nav-link" onclick="showUserIdeas()">Show my ideas</a>
+        <a href="/" class="nav-item nav-link">Show all ideas</a>
+        <a href="#" class="nav-item nav-link" onclick="showUser()">Show my info</a>
     </div>
 
-    <!-- Card para mostrar info de usuario registrado con posibilidad de editar sus datos -->
-    <div class="col-3">
-        <div class="card" id="showInfoCardUser" style="width: 18rem;" hidden>
-            <div class="card-body">
-                <h5 class="card-text" id="userLog"></h5>
-                <!-- <h6 class="card-subtitle mb-2 text-muted"></h6> -->
-                <h5 class="card-text" id="userEmail"></h5>
-                <a href="#" class="card-link">Edit</a>
-                <a href="/user/" class="card-link">Close</a>
 
+    <!-- Card para mostrar info de usuario registrado con posibilidad de editar sus datos -->
+    <div class="col-4">
+        <div class="card bg-light" id="showInfoCardUser" style="width: 18rem;" hidden>
+            <div class="card-body">
+                <h5 class="card-title">User name</h5>
+                <h6 class="card-text" id="userLog"></h6>
+                <h5 class="card-title">Email</h5>
+                <h6 class="card-text" id="userEmail"></h6><br>
+                
+                    <a href="#" class="btn btn-outline-info">Edit</a>
+                    <a href="/user/" class="btn btn-outline-info">Close</a>
             </div>
         </div>
 
         <!-- Card para añadir una idea y guardarla en la bd con la fecha e id del usuario registrado -->
-        <div class="card" id="showAddCardIdea" style="width: 18rem;" hidden>
+        <div class="card bg-light" id="showAddCardIdea" style="width: 18rem;" hidden>
             <div class="card-body">
                 <h5 class="card-title">Title</h5>
-                <input type="text" id="title" placeholder="max. 20 characters" maxlength="20" class="form-control">
+                <input type="text" id="title" placeholder="max. 20 characters" maxlength="20" class="form-control"><br>
 
                 <h5 class="card-title">Your idea</h5>
-                <textarea id="comentary" placeholder="max. 70 characters" maxlength="70" class="form-control" rows="3"></textarea> 
+                <textarea id="comentary" placeholder="max. 70 characters" maxlength="70" class="form-control"
+                    rows="3"></textarea><br>
 
-                <a href="#" class="card-link" onclick="addIdea()">Save</a>
+                <a href="#" class="btn btn-outline-info" onclick="addIdea()">Save</a>
             </div>
         </div>
+
+        <!-- Edita y borra idea del usuario -->
+        <!-- <div class="row justify-content-center" id="showEditIdea" hidden> -->
+        <div class="card bg-light" style="width: 18rem;" id="showEditIdea" hidden>
+            <div class="card-body">
+                <h5 class="card-title">Title</h5>
+                <input type="text" id="edittitle" placeholder="max. 20 characters" maxlength="20"
+                    class="form-control"><br>
+
+                <h5 class="card-title">Your idea</h5>
+                <textarea id="editcomentary" placeholder="max. 70 characters" maxlength="70" class="form-control"
+                    rows="3"></textarea><br>
+                <span>Posted: <h6 id="editdate"></h6></span>
+                <button class="btn btn-outline-info" id="deleteIdea">Delete</button>
+                <button class="btn btn-outline-info" id="updateIdea">Update</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Muestra ideas del usuario logueado -->
+<div class="row justify-content-center" id="showUserIdeas" hidden>
+    <div class="col-12 content">
+        <ul id="ul">
+        </ul>
     </div>
 </div>
 

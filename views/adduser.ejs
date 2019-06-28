@@ -3,21 +3,36 @@
 <% include navbar %>
 
 
-    <div class="row justify-content-center">
-        <div class="col-4">
-            <h4>Alta de usuario</h4>
+    <!-- <div class="row justify-content-center" id="adduser">
+        <div class="col-3">
+            <h4>Register user</h4>
             <hr>
-            <div class="form-group">
-                <h4>Username</h4>
-                <input type="text" id="username" placeholder="User name" class="form-control">
-                <h4>Email</h4>
-                <input type="text" id="email" placeholder="mail" class="form-control">
-                <h4>Password</h4>
-                <input type="password" id="password" placeholder="password" class="form-control">
+            <div class="form-group"> 
+                <input type="text" id="username" placeholder="User name" class="form-control" required> <br>
+                <input type="text" id="email" placeholder="mail" class="form-control" required> <br>
+                <input type="password" id="password" placeholder="password" class="form-control" required>
             </div>
-            <input type="button" class="btn btn-info" value="Guardar" onclick="addUser()">
+            <input type="button" class="btn btn-outline-info" value="Guardar" onclick="addUser()">
         </div>
-    </div>
+    </div> -->
+    
 
+
+
+    <div class="row justify-content-center" id="loginform">
+
+            <div class="card bg-light" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">New user</h5>
+                    <input type="text" id="username" placeholder="User name" class="form-control" required> <br>
+        
+                    <input type="text" id="email" placeholder="mail" class="form-control" required> <br>
+                <input type="password" id="password" placeholder="password" class="form-control" required><br>
+        
+                <input type="button" class="btn btn-outline-info" value="Guardar" onclick="addUser()">
+                </div>
+            </div>
+        </div>
+        
 
 <% include footer %>

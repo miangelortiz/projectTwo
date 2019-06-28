@@ -13,17 +13,51 @@
     margin:1em;
     background: white;
     /* color:#fff; */
+    /* overflow-y:hidden; */
+  }
+  /* #mainImage {
+    size: cover;
+    min-height: 100vh;
+   opacity: 0.5;
+  } */
+
+  #showIntro {
+    background: url(../images/main.jpg) no-repeat center;
+    background-size: cover;
+    min-height: 77vh;
+    opacity: 0.4;
   }
 
   .header .navbar {
-    background-color: transparent !important;
+    background-color: transparent  !important;
   }
 
   #navlink, #navlink2, #navlink3 {
     padding-top: 65px;
     font-size: 1.2em;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif !important;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif !important; 
   }
+ 
+  #loginform,  #adduser, #addidea, #card-body {
+    padding: 100px;
+  }
+
+  #loginform h4, #adduser h4, #userMenu a:hover,
+  #userMenu h3,  #showEditIdea h5, #showAddCardIdea h5,  #showInfoCardUser h5 
+  {
+   color:  #083B66
+  }
+
+
+  #userMenu h3{
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    padding-top: 50px;
+  }
+
+  #userMenu a, #userlogin {
+    color: #6AA5AF;
+  }
+
 
   h2, p{
     font-size:100px;
@@ -81,9 +115,7 @@
 
   /* Resaltado de las notas con sombreado y efecto "zoom" al utilzar la propiedad "hover" */
   /* Ponemos z-index para que quede sobre las otras notas */
-  ul li a:hover, ul li a:focus{
-    box-shadow:10px 10px 7px rgba(0,0,0,.7);
-    -moz-box-shadow:10px 10px 7px rgba(0,0,0,.7);
+  ul li a:hover, ul li a:focus{  
     -webkit-box-shadow: 10px 10px 7px rgba(0,0,0,.7);
     -webkit-transform: scale(1.25);
     position:relative;
@@ -100,8 +132,8 @@
     height:13em;
     width:13em;
     padding:1em;
-    /* -webkit-box-shadow: 5px 5px 7px rgba(33,33,33,.7); */
-    box-shadow: 5px 5px 7px rgba(33,33,33,.7);
+    -webkit-box-shadow: 5px 5px 7px rgba(33,33,33,.7);
+    /* box-shadow: 5px 5px 7px rgba(33,33,33,.7); */
     -webkit-transition:-webkit-transform .15s linear;
   }
 

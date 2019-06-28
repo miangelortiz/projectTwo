@@ -19,15 +19,9 @@ router.get('/user', function(_req, res) {
   res.render('user');
 });
 
+router.get('/myidea/:id', function(_req, res) {
+  res.render('user');
+});
 
-
-
-
-
-
-/* GET users listing. */
-// router.get('/', function(req, res, next) {
-//     res.send('respond with a resource');
-//   });
 
 module.exports = router;

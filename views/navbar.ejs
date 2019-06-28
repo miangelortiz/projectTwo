@@ -14,21 +14,22 @@
             <div class="navbar-nav m-auto" id="navlink">
               <a href="#" class="nav-item nav-link active"></a>
               <a href="#" class="nav-item nav-link">Top</a>
-              <a href="#" class="nav-item nav-link disable">Categories</a>
+              <a href="#" class="nav-item nav-link disabled">Categories</a>
               <a href="#" class="nav-item nav-link disabled" >BrainStorming</a>
             </div>
-            <div class="navbar-nav ml-auto" id="navlink2">
+            <div class="navbar-nav ml-auto" id="navlink2" hidden>
               <a href="/login/" class="nav-item nav-link">Login</a>
-              <a href="/add/" class="nav-item nav-link">Register</a>
+              <a href="/add/" class="nav-item nav-link">New user</a>
             </div>
             <div class="navbar-nav ml-auto" id="navlink3" hidden >
-                <a href="#" class="nav-item nav-link" onclick="logOut()">Log Out</a>
-                <a href="/user/" class="nav-item nav-link">
+                <a href="/user/" class="nav-item nav-link" onclick="showUserIdeas()">
                   <span id="userlogin"></span>
                 </a>
+                <a href="#" class="nav-item nav-link" onclick="logOut()">log out</a>
             </div>
           </div>
         </nav>
+        <hr>
 
       </div>
     </div>
