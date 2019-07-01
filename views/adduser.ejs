@@ -2,37 +2,18 @@
 
 <% include navbar %>
 
-
-    <!-- <div class="row justify-content-center" id="adduser">
-        <div class="col-3">
-            <h4>Register user</h4>
-            <hr>
-            <div class="form-group"> 
-                <input type="text" id="username" placeholder="User name" class="form-control" required> <br>
-                <input type="text" id="email" placeholder="mail" class="form-control" required> <br>
-                <input type="password" id="password" placeholder="password" class="form-control" required>
-            </div>
+<div class="row justify-content-center" id="loginform">
+    <div class="card bg-light" style="width: 20rem;">
+        <div class="card-body">
+            <h5 class="card-title">New user</h5>
+            <input type="text" id="username" placeholder="User name" class="form-control" required> <br>
+            <input type="text" id="email" placeholder="mail" class="form-control" required> <br>
+            <input type="password" id="password" placeholder="password" class="form-control" required><br>
+            <h6 id="nullfields"></h6>
             <input type="button" class="btn btn-outline-info" value="Guardar" onclick="addUser()">
         </div>
-    </div> -->
-    
+    </div>
+</div>
 
-
-
-    <div class="row justify-content-center" id="loginform">
-
-            <div class="card bg-light" style="width: 18rem;">
-                <div class="card-body">
-                    <h5 class="card-title">New user</h5>
-                    <input type="text" id="username" placeholder="User name" class="form-control" required> <br>
-        
-                    <input type="text" id="email" placeholder="mail" class="form-control" required> <br>
-                <input type="password" id="password" placeholder="password" class="form-control" required><br>
-        
-                <input type="button" class="btn btn-outline-info" value="Guardar" onclick="addUser()">
-                </div>
-            </div>
-        </div>
-        
 
 <% include footer %>

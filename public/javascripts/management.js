@@ -23,6 +23,7 @@ function getToken() {
 }
 
 
+//Muestra página principal
 function showIntro() {
     const token = localStorage.getItem("token");
     if (!token) {
@@ -57,7 +58,7 @@ function showUser() {
     if (token) {
         document.getElementById("showInfoCardUser").hidden = false;
         document.getElementById("showAddCardIdea").hidden = true;
-         document.getElementById("showEditIdea").hidden = true;
+        document.getElementById("showEditIdea").hidden = true;
 
         const userlog = document.getElementById("userLog");
         userlog.innerHTML = decode.username;
@@ -84,6 +85,8 @@ function addUser() {
     const passwordValue = document.getElementById("password").value;
     const emailValue = document.getElementById("email").value;
 
+    if (usernameValue !="" && emailValue !="" && passwordValue !=""){
+
     fetch("/api/user/add", {
         method: "POST",
         headers: {
@@ -101,6 +104,9 @@ function addUser() {
                 location.href = "/";
             }
         })
+    }else{
+        document.getElementById("nullfields").innerHTML = "You have to fill in all the fields ";
+    }
 }
 
 //Añade idea por el usuario registrado
@@ -132,7 +138,6 @@ function addIdea() {
 function createPosit() {
     const token = localStorage.getItem("token");
     if (token) {
-
         fetch("../api/idea", {
             headers: {
                 "Content-type": "application/json"
@@ -181,7 +186,6 @@ function showUserIdeas() {
                     const ul = document.getElementById("ul");
                     ul.innerHTML = ""
                     json.map(idea => {
-                        console.log(idea);
                         const li = document.createElement("li");
                         ul.appendChild(li);
                         const a = document.createElement("a");
@@ -221,7 +225,6 @@ function editIdea(id) {
         })
             .then(response => response.json())
             .then(ideas => {
-                console.log(ideas[0].date);
                 const sdate = ideas[0].date;
                 const ndate = sdate.split("T");
                 const ntime = ndate[1].split(".");
@@ -271,7 +274,6 @@ function deleteIdea(id) {
                 Authorization: "Bearer " + token
             }
         });
-
         location.href = "/"
     }
 }
