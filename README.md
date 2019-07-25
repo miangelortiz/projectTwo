@@ -1,2 +1,2 @@
-# proyectTwo
+# projectTwo
 Proyect two Codespace Academy
