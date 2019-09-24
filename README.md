@@ -1,7 +1,7 @@
 # Project Two
 Proyect two Codespace Academy
 
-Simple Login & CRUD 
+Simple Login & CRUD with MongoDB
 
 ## Technologies
 * NodeJS
